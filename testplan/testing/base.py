@@ -9,6 +9,7 @@ from schema import Or, Use, And
 
 from testplan.common.config import ConfigOption, validate_func
 
+from testplan.testing import multitest
 from testplan.testing import filtering, ordering, tagging
 
 from testplan.common.entity import (

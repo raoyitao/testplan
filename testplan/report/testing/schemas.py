@@ -200,6 +200,8 @@ class TestCaseReportSchema(ReportSchema):
     status = fields.String(dump_only=True)
     runtime_status = fields.String(dump_only=True)
     counter = fields.Dict(dump_only=True)
+    passed = fields.Bool()
+    failed = fields.Bool()
     suite_related = fields.Bool()
     timer = TimerField(required=True)
     tags = TagField()

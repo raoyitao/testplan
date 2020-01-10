@@ -594,9 +594,12 @@ class MultiTest(Test):
 
                 time_restriction = getattr(testcase, 'timeout', None)
                 if time_restriction:
-                    timeout_deco(
+                    executed, execution_result = timeout_deco(
                         time_restriction, 'Testcase timeout after {} seconds'
                     )(testcase)(self.resources, case_result)
+                    if not executed:
+                        testcase_report.logger.error(execution_result)
+                        testcase_report.status_override = Status.ERROR
                 else:
                     testcase(self.resources, case_result)
 

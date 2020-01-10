@@ -357,6 +357,7 @@ def _testcase(func):
 
 
 def _testcase_meta(
+    name=None,
     tags=None,
     parameters=None,
     name_func=parametrization.default_name_func,
@@ -382,7 +383,6 @@ def _testcase_meta(
         function.__tags__ = copy.deepcopy(tag_dict)
 
         if parameters is not None:  # Empty tuple / dict checks happen later
-
             function.__parametrization_template__ = True
 
             functions = parametrization.generate_functions(
